@@ -1,10 +1,11 @@
 package sources;
 
 import java.awt.Color;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 public class GUI extends JFrame 
-{
+{  
     public GUI() 
     {
         initComponents();
@@ -19,8 +20,11 @@ public class GUI extends JFrame
         this.getContentPane().setBackground(Color.CYAN);
         this.setResizable(false);
         this.setVisible(true);
+        
+        radioButtonE.setVisible(false);
+        radioButtonS.setVisible(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,19 +34,21 @@ public class GUI extends JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombreElemento = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        transactionType = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jSpinner2 = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
+        radioButtonE = new javax.swing.JRadioButton();
+        radioButtonS = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Añadir elemento");
@@ -53,7 +59,12 @@ public class GUI extends JFrame
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Tipo de transacción:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fichero lógico de datos externo", "Fichero lógico de datos interno", "Consulta externa", "Entrada externa", "Salida externa" }));
+        transactionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fichero lógico de datos externo", "Fichero lógico de datos interno", "Consulta externa", "Entrada externa", "Salida externa" }));
+        transactionType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transactionTypeActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Número de ficheros / Tipo de registros:");
@@ -66,6 +77,12 @@ public class GUI extends JFrame
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jButton1.setText("Añadir");
+
+        buttonGroup.add(radioButtonE);
+        radioButtonE.setText("Entrada");
+
+        buttonGroup.add(radioButtonS);
+        radioButtonS.setText("Salida");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,8 +103,8 @@ public class GUI extends JFrame
                                     .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jComboBox1, 0, 219, Short.MAX_VALUE)))
+                                    .addComponent(nombreElemento)
+                                    .addComponent(transactionType, 0, 219, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -95,11 +112,16 @@ public class GUI extends JFrame
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radioButtonE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radioButtonS))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(jButton1)))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,17 +130,19 @@ public class GUI extends JFrame
                 .addComponent(jLabel1)
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreElemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(transactionType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioButtonE)
+                    .addComponent(radioButtonS))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,6 +153,28 @@ public class GUI extends JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void transactionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transactionTypeActionPerformed
+        
+        JComboBox comboBox = (JComboBox) evt.getSource();
+        Object selected = comboBox.getSelectedItem();
+        String tipoSeleccionado = selected.toString();
+        
+        if("Consulta externa".equals(tipoSeleccionado))
+        {
+            radioButtonE.setVisible(true);
+            radioButtonE.setSelected(true);
+            radioButtonS.setVisible(true);
+        }
+        
+        else
+        {
+            radioButtonE.setVisible(false);
+            radioButtonS.setVisible(false);
+        }
+        
+        nombreElemento.setText("");
+    }//GEN-LAST:event_transactionTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +212,8 @@ public class GUI extends JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -175,6 +221,9 @@ public class GUI extends JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nombreElemento;
+    private javax.swing.JRadioButton radioButtonE;
+    private javax.swing.JRadioButton radioButtonS;
+    private javax.swing.JComboBox<String> transactionType;
     // End of variables declaration//GEN-END:variables
 }
