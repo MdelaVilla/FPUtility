@@ -1,11 +1,17 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Observable;
 
 public class IFPUG extends Observable {
 
-    private static final Complexity[][] complexities = {
+    public static final int TRANSATION_ADDED = 0;
+    public static final int FEATURES_CHANGED = 1;
+
+    private static final IFPUG INSTANCE = new IFPUG();
+    private static final Complexity[][] COMPLEXITIES = {
         {Complexity.S, Complexity.S, Complexity.M},
         {Complexity.S, Complexity.M, Complexity.C},
         {Complexity.M, Complexity.C, Complexity.C}
@@ -18,7 +24,7 @@ public class IFPUG extends Observable {
         int i1 = -1, i2 = -2;
         while (det > max_det[++i1]);
         while (ftr > max_ftr[++i2]);
-        return complexities[i2][i1];
+        return COMPLEXITIES[i2][i1];
     }
 
     @SuppressWarnings("empty-statement")
@@ -28,7 +34,7 @@ public class IFPUG extends Observable {
         int i1 = -1, i2 = -2;
         while (det > max_det[++i1]);
         while (ret > max_ret[++i2]);
-        return complexities[i2][i1];
+        return COMPLEXITIES[i2][i1];
     }
 
     @SuppressWarnings("empty-statement")
@@ -38,7 +44,7 @@ public class IFPUG extends Observable {
         int i1 = -1, i2 = -2;
         while (det > max_det[++i1]);
         while (ftr > max_ftr[++i2]);
-        return complexities[i2][i1];
+        return COMPLEXITIES[i2][i1];
     }
 
     public static Complexity CalcComplexityEQ(int det_in, int ret_in,
@@ -55,45 +61,57 @@ public class IFPUG extends Observable {
         int i1 = -1, i2 = -2;
         while (det > max_det[++i1]);
         while (ret > max_ret[++i2]);
-        return complexities[i2][i1];
+        return COMPLEXITIES[i2][i1];
+    }
+
+    public static IFPUG getInstance() {
+        return INSTANCE;
     }
 
     private int[] features;
-    private int[][] transactions;
+    private List<Transaction> transactions;
 
-    public IFPUG() {
+    private IFPUG() {
         features = new int[14];
         Arrays.fill(features, 5);
-        transactions = new int[5][3];
-        for (int i = 0; i < transactions.length; i++) {
-            Arrays.fill(transactions[i], 0);
-        }
+        transactions = new ArrayList<>();
     }
 
-    public void addTransaction(Type type, Complexity complexity) {
-        transactions[type.ordinal()][complexity.ordinal()]++;
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
         setChanged();
-        notifyObservers();
+        notifyObservers(TRANSATION_ADDED);
     }
 
     public int[] getFeatures() {
         return features;
     }
 
-    public int[][] getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
     public void setFeatures(int[] features) {
         this.features = features;
         setChanged();
-        notifyObservers();
+        notifyObservers(FEATURES_CHANGED);
     }
 
-    public void setTransactions(int[][] transactions) {
+    public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
         setChanged();
-        notifyObservers();
+        notifyObservers(TRANSATION_ADDED);
+    }
+
+    public int[][] getSummary() {
+        int[][] summary = new int[5][3];
+        for (int[] row : summary) {
+            Arrays.fill(row, 0);
+        }
+        transactions.forEach((t) -> {
+            summary[t.getType().ordinal()][t.getComplexity().ordinal()]++;
+        });
+        return summary;
     }
 
 }
