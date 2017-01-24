@@ -1,12 +1,18 @@
 package view;
 
 import controler.TransactionSelection;
+import model.Calculator;
+import model.IFPUG;
+import model.Transaction;
 
 public class AddElement extends javax.swing.JFrame {
 
+    private IFPUG ifpug;
+    
     public AddElement() {
         initComponents();
         jComboBox1.addActionListener(new TransactionSelection(this));
+        ifpug = IFPUG.getInstance();
     }
 
     @SuppressWarnings("unchecked")
@@ -47,7 +53,7 @@ public class AddElement extends javax.swing.JFrame {
 
         jLabel5.setText("número de datos elementales:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fichero Lógico Interno", "Fichero Lógico Externo", "Entrada Externa", "Salida Externa", "Consulta Externa" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EI", "EO", "ILF", "ELF", "EQ" }));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -72,6 +78,11 @@ public class AddElement extends javax.swing.JFrame {
         jLabel9.setEnabled(false);
 
         jButton1.setText("Grabar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
 
@@ -170,6 +181,50 @@ public class AddElement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Transaction t = null;
+        switch (jComboBox1.getSelectedIndex()) {
+            case 0:
+                t = new Transaction(jTextField1.getText().trim(),
+                        model.Type.EI,
+                        Calculator.CalcComplexityEI(
+                                Integer.parseInt(jTextField3.getText().trim()),
+                                Integer.parseInt(jTextField2.getText().trim())));
+                break;
+            case 1:
+                t = new Transaction(jTextField1.getText().trim(),
+                        model.Type.EO,
+                        Calculator.CalcComplexityEO(
+                                Integer.parseInt(jTextField3.getText().trim()),
+                                Integer.parseInt(jTextField2.getText().trim())));
+                break;
+            case 2:
+                t = new Transaction(jTextField1.getText().trim(),
+                        model.Type.ILF,
+                        Calculator.CalcComplexityILF(
+                                Integer.parseInt(jTextField3.getText().trim()),
+                                Integer.parseInt(jTextField2.getText().trim())));
+                break;
+            case 3:
+                t = new Transaction(jTextField1.getText().trim(),
+                        model.Type.EI,
+                        Calculator.CalcComplexityELF(
+                                Integer.parseInt(jTextField3.getText().trim()),
+                                Integer.parseInt(jTextField2.getText().trim())));
+                break;
+            case 4:
+                t = new Transaction(jTextField1.getText().trim(),
+                        model.Type.EQ,
+                        Calculator.CalcComplexityEQ(
+                                Integer.parseInt(jTextField3.getText().trim()),
+                                Integer.parseInt(jTextField2.getText().trim()),
+                                Integer.parseInt(jTextField5.getText().trim()),
+                                Integer.parseInt(jTextField4.getText().trim())));
+                break;
+        }
+        ifpug.addTransaction(t);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void isExternalQuery(boolean b) {
         jLabel6.setEnabled(b);

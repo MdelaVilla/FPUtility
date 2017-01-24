@@ -174,11 +174,11 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value="Fichero L&#xf3;gico Interno"/>
-            <StringItem index="1" value="Fichero L&#xf3;gico Externo"/>
-            <StringItem index="2" value="Entrada Externa"/>
-            <StringItem index="3" value="Salida Externa"/>
-            <StringItem index="4" value="Consulta Externa"/>
+            <StringItem index="0" value="EI"/>
+            <StringItem index="1" value="EO"/>
+            <StringItem index="2" value="ILF"/>
+            <StringItem index="3" value="ELF"/>
+            <StringItem index="4" value="EQ"/>
           </StringArray>
         </Property>
       </Properties>
@@ -242,6 +242,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Grabar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>

@@ -16,7 +16,7 @@ public class TransactionSelection implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JComboBox<String> jcb = (JComboBox<String>) e.getSource();
-        view.isExternalQuery("Consulta Externa".equals(jcb.getSelectedItem()));
+        view.isExternalQuery("EQ".equals(jcb.getSelectedItem()));
     }
 
 }
