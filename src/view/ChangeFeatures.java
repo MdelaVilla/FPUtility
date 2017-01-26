@@ -1,18 +1,16 @@
 package view;
 
-import controler.CntrVwChangeFeat;
-import java.util.Observable;
-import java.util.Observer;
+import controler.CntrVwChngFtr;
 import javax.swing.DefaultCellEditor;
 import model.IFPUG;
 
-public class ChangeFeatures extends javax.swing.JFrame implements Observer {
+public class ChangeFeatures extends javax.swing.JFrame {
 
     private IFPUG ifpug = IFPUG.getInstance();
 
     public ChangeFeatures() {
         initComponents();
-        jTable1.getModel().addTableModelListener(new CntrVwChangeFeat(this, jTable1));
+        jTable1.getModel().addTableModelListener(new CntrVwChngFtr(this, jTable1));
     }
 
     @SuppressWarnings("unchecked")
@@ -135,16 +133,6 @@ public class ChangeFeatures extends javax.swing.JFrame implements Observer {
 
     public void setSum(String str) {
         jTextField1.setText(str);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void main(String[] args) {
-        ChangeFeatures cf = new ChangeFeatures();
-        cf.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,6 +1,6 @@
 package view;
 
-import controler.CntrVwAddTrans;
+import controler.CntrVwAddTrnsctn;
 import model.Calculator;
 import model.IFPUG;
 import model.Transaction;
@@ -11,7 +11,7 @@ public class AddTransaction extends javax.swing.JFrame {
 
     public AddTransaction() {
         initComponents();
-        jComboBox1.addActionListener(new CntrVwAddTrans(this, jComboBox1));
+        jComboBox1.addActionListener(new CntrVwAddTrnsctn(this, jComboBox1));
     }
 
     @SuppressWarnings("unchecked")
