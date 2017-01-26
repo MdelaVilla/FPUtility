@@ -1,5 +1,6 @@
 package view;
 
+import controler.FeaturesSum;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.DefaultCellEditor;
@@ -8,6 +9,7 @@ public class ChangeFeatures extends javax.swing.JFrame implements Observer {
 
     public ChangeFeatures() {
         initComponents();
+        jTable1.getModel().addTableModelListener(new FeaturesSum(this, jTable1));
     }
 
     @SuppressWarnings("unchecked")
