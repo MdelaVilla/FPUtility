@@ -6,12 +6,12 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.ChangeFeatures;
 
-public class FeaturesSum implements TableModelListener {
+public class CntrVwChangeFeat implements TableModelListener {
     
     private ChangeFeatures view;
     private JTable table;
     
-    public FeaturesSum(ChangeFeatures view, JTable table) {
+    public CntrVwChangeFeat(ChangeFeatures view, JTable table) {
         this.view = view;
         this.table = table;
     }

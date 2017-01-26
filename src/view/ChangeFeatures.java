@@ -1,15 +1,18 @@
 package view;
 
-import controler.FeaturesSum;
+import controler.CntrVwChangeFeat;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.DefaultCellEditor;
+import model.IFPUG;
 
 public class ChangeFeatures extends javax.swing.JFrame implements Observer {
 
+    private IFPUG ifpug = IFPUG.getInstance();
+
     public ChangeFeatures() {
         initComponents();
-        jTable1.getModel().addTableModelListener(new FeaturesSum(this, jTable1));
+        jTable1.getModel().addTableModelListener(new CntrVwChangeFeat(this, jTable1));
     }
 
     @SuppressWarnings("unchecked")

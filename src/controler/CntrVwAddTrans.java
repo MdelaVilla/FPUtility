@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import view.AddTransaction;
 
-public class TypeSelection implements ActionListener {
+public class CntrVwAddTrans implements ActionListener {
     
     private AddTransaction view;
     private JComboBox box;
 
-    public TypeSelection(AddTransaction view, JComboBox box) {
+    public CntrVwAddTrans(AddTransaction view, JComboBox box) {
         this.view = view;
         this.box = box;
     }
