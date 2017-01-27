@@ -37,7 +37,6 @@ public class AddTransaction extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(586, 265));
         setMinimumSize(new java.awt.Dimension(586, 265));
         setResizable(false);
 
@@ -75,6 +74,11 @@ public class AddTransaction extends javax.swing.JFrame {
         jLabel8.setEnabled(false);
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,6 +236,10 @@ public class AddTransaction extends javax.swing.JFrame {
         }
         ifpug.addTransaction(t);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void isExternalQuery(boolean flag) {
         jLabel6.setVisible(flag);
