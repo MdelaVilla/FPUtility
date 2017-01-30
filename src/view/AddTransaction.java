@@ -269,4 +269,13 @@ public class AddTransaction extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
+    public static void main(String args[])
+    {
+        AddTransaction atWindow = new AddTransaction();
+        
+        atWindow.setVisible(true);
+    }
+
 }
+
