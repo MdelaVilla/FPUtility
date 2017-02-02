@@ -1,6 +1,6 @@
 package view;
 
-import controler.CntrVwAddTrnsctn;
+import controler.ListenerJComboBox;
 import model.Calculator;
 import model.IFPUG;
 import model.Transaction;
@@ -11,7 +11,7 @@ public class AddTransaction extends javax.swing.JFrame {
 
     public AddTransaction() {
         initComponents();
-        jComboBox1.addActionListener(new CntrVwAddTrnsctn(this, jComboBox1));
+        jComboBox1.addActionListener(new ListenerJComboBox(this, jComboBox1));
     }
 
     @SuppressWarnings("unchecked")
@@ -234,6 +234,7 @@ public class AddTransaction extends javax.swing.JFrame {
                 break;
         }
         ifpug.addTransaction(t);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -268,13 +269,4 @@ public class AddTransaction extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
-
-    public static void main(String args[])
-    {
-        AddTransaction atWindow = new AddTransaction();
-        
-        atWindow.setVisible(true);
-    }
-
 }
-

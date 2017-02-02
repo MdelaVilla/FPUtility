@@ -12,7 +12,7 @@ public class Calculator {
     public static Complexity CalcComplexityEI(int det, int ftr) {
         int[] max_det = {4, 15, Integer.MAX_VALUE};
         int[] max_ftr = {1, 2, Integer.MAX_VALUE};
-        int i1 = -1, i2 = -2;
+        int i1 = -1, i2 = -1;
         while (det > max_det[++i1]);
         while (ftr > max_ftr[++i2]);
         return COMPLEXITIES[i2][i1];
@@ -22,7 +22,7 @@ public class Calculator {
     public static Complexity CalcComplexityELF(int det, int ret) {
         int[] max_det = {19, 50, Integer.MAX_VALUE};
         int[] max_ret = {1, 5, Integer.MAX_VALUE};
-        int i1 = -1, i2 = -2;
+        int i1 = -1, i2 = -1;
         while (det > max_det[++i1]);
         while (ret > max_ret[++i2]);
         return COMPLEXITIES[i2][i1];
@@ -32,7 +32,7 @@ public class Calculator {
     public static Complexity CalcComplexityEO(int det, int ftr) {
         int[] max_det = {5, 19, Integer.MAX_VALUE};
         int[] max_ftr = {1, 3, Integer.MAX_VALUE};
-        int i1 = -1, i2 = -2;
+        int i1 = -1, i2 = -1;
         while (det > max_det[++i1]);
         while (ftr > max_ftr[++i2]);
         return COMPLEXITIES[i2][i1];
@@ -49,7 +49,7 @@ public class Calculator {
     public static Complexity CalcComplexityILF(int det, int ret) {
         int[] max_det = {19, 50, Integer.MAX_VALUE};
         int[] max_ret = {1, 5, Integer.MAX_VALUE};
-        int i1 = -1, i2 = -2;
+        int i1 = -1, i2 = -1;
         while (det > max_det[++i1]);
         while (ret > max_ret[++i2]);
         return COMPLEXITIES[i2][i1];

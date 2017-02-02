@@ -10,6 +10,14 @@ public class IFPUG extends Observable {
     public static final int TRANSATION_ADDED = 0;
     public static final int FEATURES_CHANGED = 1;
 
+    public static final int[][] heft = {
+        {3, 4, 6},
+        {4, 5, 7},
+        {7, 10, 15},
+        {5, 7, 10},
+        {3, 4, 6}
+    };
+
     private static final IFPUG INSTANCE = new IFPUG();
 
     public static IFPUG getInstance() {

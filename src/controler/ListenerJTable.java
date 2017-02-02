@@ -6,12 +6,12 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.ChangeFeatures;
 
-public class CntrVwChngFtr implements TableModelListener {
+public class ListenerJTable implements TableModelListener {
     
     private ChangeFeatures view;
     private JTable table;
     
-    public CntrVwChngFtr(ChangeFeatures view, JTable table) {
+    public ListenerJTable(ChangeFeatures view, JTable table) {
         this.view = view;
         this.table = table;
     }

@@ -1,6 +1,6 @@
 package view;
 
-import controler.CntrVwChngFtr;
+import controler.ListenerJTable;
 import javax.swing.DefaultCellEditor;
 import model.IFPUG;
 
@@ -10,7 +10,7 @@ public class ChangeFeatures extends javax.swing.JFrame {
 
     public ChangeFeatures() {
         initComponents();
-        jTable1.getModel().addTableModelListener(new CntrVwChngFtr(this, jTable1));
+        jTable1.getModel().addTableModelListener(new ListenerJTable(this, jTable1));
     }
 
     @SuppressWarnings("unchecked")
@@ -150,6 +150,7 @@ public class ChangeFeatures extends javax.swing.JFrame {
                 features[i] = Integer.parseInt(str);
             }
             ifpug.setFeatures(features);
+            this.dispose();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -172,12 +173,4 @@ public class ChangeFeatures extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-
-    
-    public static void main(String args[])
-    {
-        ChangeFeatures cfWindow = new ChangeFeatures();
-        
-        cfWindow.setVisible(true);
-    }
 }
