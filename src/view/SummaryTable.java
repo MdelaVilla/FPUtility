@@ -123,6 +123,7 @@ public class SummaryTable extends javax.swing.JFrame implements Observer {
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jTextField4.setForeground(java.awt.Color.red);
+        jTextField4.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
