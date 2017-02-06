@@ -11,6 +11,8 @@ import model.IFPUG;
 public class SummaryTable extends javax.swing.JFrame implements Observer {
 
     private IFPUG ifpug = IFPUG.getInstance();
+    private CMap cMap = new CMap();
+    private EMap eMap = new EMap();
 
     public SummaryTable() {
         initComponents();
@@ -213,8 +215,8 @@ public class SummaryTable extends javax.swing.JFrame implements Observer {
         
         if(!"ISBSG".equals(ISBSG_value))
         {
-            CMap cMap = new CMap();
-            EMap eMap = new EMap();
+            // CMap cMap = new CMap();
+            // EMap eMap = new EMap();
             String[] ISBSG = ISBSG_value.split("-");
             String key = ISBSG[1];
             Object cValue = cMap.get(key.trim());
@@ -227,6 +229,9 @@ public class SummaryTable extends javax.swing.JFrame implements Observer {
             
             jTextField4.setText(df.format(hours));
         }
+        
+        else
+            jTextField4.setText("0,0");
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     @Override

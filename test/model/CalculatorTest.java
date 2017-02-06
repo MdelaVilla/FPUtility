@@ -21,7 +21,7 @@ public class CalculatorTest {
     /**
      * Test of CalcComplexityEI method, of class Calculator. All right.
      */
-    /* @Test
+    @Test
     public void testCalcComplexityEI() {
         System.out.println("CalcComplexityEI");
         
@@ -32,12 +32,12 @@ public class CalculatorTest {
         int value = result.compareTo(expResult);
         
         assertEquals(value, 0);
-    } */
+    }
 
     /**
      * Test of CalcComplexityELF method, of class Calculator. All right.
      */
-    /* @Test
+    @Test
     public void testCalcComplexityELF() {
         System.out.println("CalcComplexityELF");
         
@@ -48,12 +48,12 @@ public class CalculatorTest {
         int value = result.compareTo(expResult);
         
         assertEquals(value, 0);
-    } */
+    }
 
     /**
      * Test of CalcComplexityEO method, of class Calculator. All right.
      */
-    /* @Test
+    @Test
     public void testCalcComplexityEO() {
         System.out.println("CalcComplexityEO");
         
@@ -64,12 +64,12 @@ public class CalculatorTest {
         int value = result.compareTo(expResult);
         
         assertEquals(value, 0);
-    } */
+    }
 
     /**
      * Test of CalcComplexityEQ method, of class Calculator. All right.
      */
-    /* @Test
+    @Test
     public void testCalcComplexityEQ() {
         System.out.println("CalcComplexityEQ");
         
@@ -82,12 +82,12 @@ public class CalculatorTest {
         int value = result.compareTo(expResult);
         
         assertEquals(value, 0);
-    } */
+    }
 
     /**
      * Test of CalcComplexityILF method, of class Calculator. All right.
      */
-    /* @Test
+    @Test
     public void testCalcComplexityILF() {
         System.out.println("CalcComplexityILF");
         
@@ -98,6 +98,6 @@ public class CalculatorTest {
         int value = result.compareTo(expResult);
         
         assertEquals(value, 0);
-    } */
+    }
     
 }
